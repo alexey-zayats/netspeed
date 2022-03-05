@@ -1,11 +1,13 @@
 FROM golang:alpine AS builder
+
 LABEL stage=netspeed-intermediate
+
 RUN apk -U --no-cache add git make
 
 WORKDIR /go/src/github.com/alexey-zayats/netspeed
 COPY ../.. .
 
-RUN make binary
+RUN go build -o /go/src/github.com/alexey-zayats/netspeed/bin/netspeed /go/src/github.com/alexey-zayats/netspeed/cmd/netspeed
 
 FROM alpine:latest AS runner
 
@@ -13,7 +15,7 @@ WORKDIR /app
 
 COPY --from=builder /go/src/github.com/alexey-zayats/netspeed/bin/netspeed /app/netspeed
 
-RUN apk -U --no-cache add bash ca-certificates \
+RUN apk -U --no-cache add bash ca-certificates chromium \
     && chmod +x /app/netspeed
 
 ENTRYPOINT ["/app/netspeed"]
