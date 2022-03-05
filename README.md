@@ -10,7 +10,7 @@ For the Netflix's measurements used implementation from `https://github.com/adho
 This is means that the fast.com usage require installed Chrome on target computer  
 
 ## Usage example
-```
+```go
 package main
 
 import (
@@ -53,7 +53,7 @@ make test-cover
 ```
 
 ## Dockerfile example
-```
+```dockerfile
 FROM golang:alpine AS builder
 
 LABEL stage=netspeed-intermediate
@@ -80,7 +80,7 @@ ENTRYPOINT ["/app/netspeed"]
 
 ## Existing docker image
 ### netflix
-```
+```shell
 docker run aazayats/netspeed -provider netflix
 
 Provider: netflix
@@ -89,8 +89,13 @@ Upload: 87.000000 Mbps
 Time: 40.873942982s
 ```
 ### ookla
-```
+```shell
 docker run aazayats/netspeed -provider ookla
+
+Provider: ookla
+Download: 83.244657 Mbps
+Upload: 87.105972 Mbps
+Time: 21.497108358s
 ```
 
 ## Build options
