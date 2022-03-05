@@ -3,8 +3,9 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/alexey-zayats/netspeed"
 	"os"
+
+	"github.com/alexey-zayats/netspeed"
 )
 
 func main() {
@@ -16,7 +17,7 @@ func main() {
 
 	result, err := netspeed.Measure(netspeed.KindFromString(pkind))
 	if err != nil {
-		fmt.Printf("unable measure network speed with provider %s: %s", pkind, err)
+		fmt.Printf("unable measure network speed with provider %s: %s\n", pkind, err)
 		os.Exit(1)
 	}
 

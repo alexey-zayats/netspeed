@@ -17,6 +17,7 @@ const (
 	unknown = "unknown"
 )
 
+// KindFromString makes Kind from given string
 func KindFromString(k string) (p Kind) {
 	p = KindUnknown
 	switch k {
@@ -28,6 +29,7 @@ func KindFromString(k string) (p Kind) {
 	return
 }
 
+// String interface implementation for Kind
 func (p Kind) String() (s string) {
 	switch p {
 	case KindOokla:

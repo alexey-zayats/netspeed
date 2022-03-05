@@ -2,12 +2,13 @@ package netspeed
 
 import (
 	"context"
-	"github.com/chromedp/cdproto/emulation"
-	"github.com/chromedp/chromedp"
-	"github.com/pkg/errors"
 	"log"
 	"strconv"
 	"time"
+
+	"github.com/chromedp/cdproto/emulation"
+	"github.com/chromedp/chromedp"
+	"github.com/pkg/errors"
 )
 
 type netflixProvider struct {
@@ -20,6 +21,8 @@ type netflixProvider struct {
 
 // Measure perform network speed measurements based on Netflix's fast.com
 func (n *netflixProvider) measure() (Result, error) {
+
+	n.start = time.Now()
 
 	// setup the context
 	ctx, cancel := chromedp.NewContext(

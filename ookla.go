@@ -2,9 +2,10 @@ package netspeed
 
 import (
 	"fmt"
+	"time"
+
 	"github.com/pkg/errors"
 	"github.com/showwin/speedtest-go/speedtest"
-	"time"
 )
 
 var (
